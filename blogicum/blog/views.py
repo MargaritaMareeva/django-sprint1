@@ -46,16 +46,17 @@ posts = [
 
 
 def index(request):
-    context = {'posts': posts}
+    context = {'posts': posts[::-1]}
     return render(request, 'blog/index.html', context)
 
 
 def post_detail(request, id):
-    post = None
-    for post in posts:
-        if post['id'] == id:
+    found_post = None
+    for p in posts:
+        if p['id'] == id:
+            found_post = p
             break
-    context = {'post': post}
+    context = {'post': found_post}
     return render(request, 'blog/detail.html', context)
 
 
