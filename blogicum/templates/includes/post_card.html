@@ -18,4 +18,5 @@
     <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
   {% else %}
   <p>{{ post.text|linebreaks }}</p>
+  {% endif %}
 </article>
